@@ -1,55 +1,70 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { Menu, X, Phone, Mail } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Mail, Menu, Phone, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+
+const storeUrl = process.env.NEXT_PUBLIC_STORE_URL || "#";
 
 const navigation = [
   { name: "Home", href: "#" },
   { name: "About", href: "#about" },
   { name: "Services", href: "#services" },
-  { name: "Products", href: "#products" },
-  { name: "Contact", href: "#contact" },
-]
+  { name: "Store", href: storeUrl, external: true },
+];
 
 export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden"
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = ""
+      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = ""
-    }
-  }, [mobileMenuOpen])
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur transition-shadow supports-[backdrop-filter]:bg-background/60 ${
+      className={`sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur transition-shadow supports-backdrop-filter:bg-background/60 ${
         scrolled ? "shadow-md" : ""
       }`}
     >
       {/* Top bar - hidden on mobile */}
       <div className="hidden border-b border-border/40 bg-muted/50 md:block">
         <div className="mx-auto flex max-w-7xl items-center justify-end gap-6 px-4 py-2 text-sm text-muted-foreground sm:px-6 lg:px-8">
-          <a href="tel:+919876543210" className="flex items-center gap-2 hover:text-foreground">
+          <a
+            href="tel:+912646221638"
+            className="flex items-center gap-2 hover:text-foreground"
+          >
             <Phone className="h-4 w-4" />
-            <span>+91 98765 43210</span>
+            <span>+91-2646-221638</span>
           </a>
-          <a href="mailto:info@blowpack.com" className="flex items-center gap-2 hover:text-foreground">
+          <a
+            href="tel:+916358940904"
+            className="flex items-center gap-2 hover:text-foreground"
+          >
+            <Phone className="h-4 w-4" />
+            <span>+91 6358 940 904</span>
+          </a>
+          <a
+            href="mailto:info@blowpack.com"
+            className="flex items-center gap-2 hover:text-foreground"
+          >
             <Mail className="h-4 w-4" />
             <span>info@blowpack.com</span>
           </a>
@@ -60,26 +75,36 @@ export function Header() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-            <span className="font-serif text-lg font-bold text-primary-foreground">SN</span>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-serif text-lg font-semibold leading-tight text-foreground">Shri Navkar</span>
-            <span className="text-xs text-muted-foreground">Blowpack</span>
-          </div>
+          <Image
+            src="/apple-icon.png"
+            alt="Shri Navkar Blowpack Logo"
+            width={60}
+            height={60}
+          />
         </Link>
 
         {/* Desktop navigation */}
         <div className="hidden items-center gap-8 lg:flex">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {item.name}
-            </Link>
-          ))}
+          {navigation.map((item) => {
+            const linkProps = item.external
+              ? {
+                  prefetch: false,
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                }
+              : {};
+
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                {...linkProps}
+              >
+                {item.name}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Desktop CTA */}
@@ -87,7 +112,10 @@ export function Header() {
           <Button variant="outline" size="sm">
             Request Quote
           </Button>
-          <Button size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90">
+          <Button
+            size="sm"
+            className="bg-accent text-accent-foreground hover:bg-accent/90"
+          >
             Get in Touch
           </Button>
         </div>
@@ -100,37 +128,65 @@ export function Header() {
           aria-expanded={mobileMenuOpen}
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
-          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {mobileMenuOpen ? (
+            <X className="h-6 w-6" />
+          ) : (
+            <Menu className="h-6 w-6" />
+          )}
         </button>
       </nav>
 
       <div
-        className={`fixed inset-x-0 top-[73px] bottom-0 z-40 transform bg-background transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed inset-x-0 top-18.25 bottom-0 z-40 transform bg-background transition-transform duration-300 ease-in-out lg:hidden ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex h-full flex-col">
           <div className="flex-1 space-y-1 overflow-y-auto px-4 py-4">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="block rounded-md px-4 py-3 text-base font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navigation.map((item) => {
+              const linkProps = item.external
+                ? {
+                    prefetch: false,
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                  }
+                : {};
+
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="block rounded-md px-4 py-3 text-base font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                  onClick={() => setMobileMenuOpen(false)}
+                  {...linkProps}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Mobile contact info */}
           <div className="border-t border-border px-4 py-4">
             <div className="mb-4 space-y-2">
-              <a href="tel:+919876543210" className="flex items-center gap-3 text-sm text-muted-foreground">
+              <a
+                href="tel:+912646221638"
+                className="flex items-center gap-3 text-sm text-muted-foreground"
+              >
                 <Phone className="h-4 w-4" />
-                <span>+91 98765 43210</span>
+                <span>+91-2646-221638</span>
               </a>
-              <a href="mailto:info@blowpack.com" className="flex items-center gap-3 text-sm text-muted-foreground">
+              <a
+                href="tel:+916358940904"
+                className="flex items-center gap-3 text-sm text-muted-foreground"
+              >
+                <Phone className="h-4 w-4" />
+                <span>+91 6358 940 904</span>
+              </a>
+              <a
+                href="mailto:info@blowpack.com"
+                className="flex items-center gap-3 text-sm text-muted-foreground"
+              >
                 <Mail className="h-4 w-4" />
                 <span>info@blowpack.com</span>
               </a>
@@ -139,7 +195,9 @@ export function Header() {
               <Button variant="outline" className="w-full bg-transparent">
                 Request Quote
               </Button>
-              <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">Get in Touch</Button>
+              <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+                Get in Touch
+              </Button>
             </div>
           </div>
         </div>
@@ -153,5 +211,5 @@ export function Header() {
         />
       )}
     </header>
-  )
+  );
 }

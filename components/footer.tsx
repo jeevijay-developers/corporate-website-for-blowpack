@@ -1,5 +1,6 @@
-import Link from "next/link"
-import { Phone, Mail, MapPin, Facebook, Linkedin, Twitter } from "lucide-react"
+import Link from "next/link";
+import { Phone, Mail, MapPin, Facebook, Linkedin, Twitter } from "lucide-react";
+import Image from "next/image";
 
 const footerLinks = {
   company: [
@@ -20,7 +21,7 @@ const footerLinks = {
     { name: "Mould Development", href: "#services" },
     { name: "Quality Assurance", href: "#services" },
   ],
-}
+};
 
 export function Footer() {
   return (
@@ -29,27 +30,27 @@ export function Footer() {
         <div className="grid gap-10 sm:gap-8 lg:grid-cols-4">
           {/* Company info */}
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                <span className="font-serif text-lg font-bold text-primary-foreground">SN</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-serif text-lg font-semibold leading-tight text-foreground">Shri Navkar</span>
-                <span className="text-xs text-muted-foreground">Blowpack</span>
-              </div>
+            <Link href="/" className="flex items-center gap-2">
+              <Image
+                src="/apple-icon.png"
+                alt="Shri Navkar Blowpack Logo"
+                width={60}
+                height={60}
+              />
             </Link>
             <p className="mt-4 text-sm text-muted-foreground">
-              Leading manufacturer of premium blow-moulded plastic packaging solutions since 1992.
+              Trusted global partner in HDPE and multilayer barrier packaging
+              for agrochemical and specialty chemical industries.
             </p>
 
             {/* Contact info */}
             <div className="mt-6 space-y-3">
               <a
-                href="tel:+919876543210"
+                href="tel:+912646221638"
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
               >
                 <Phone className="h-4 w-4" />
-                <span>+91 98765 43210</span>
+                <span>+91-2646-221638</span>
               </a>
               <a
                 href="mailto:info@blowpack.com"
@@ -72,7 +73,10 @@ export function Footer() {
               <ul className="mt-3 space-y-2.5 sm:mt-4 sm:space-y-3">
                 {footerLinks.company.map((link) => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-sm text-muted-foreground hover:text-foreground">
+                    <Link
+                      href={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground"
+                    >
                       {link.name}
                     </Link>
                   </li>
@@ -80,11 +84,16 @@ export function Footer() {
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-foreground">Products</h3>
+              <h3 className="text-sm font-semibold text-foreground">
+                Products
+              </h3>
               <ul className="mt-3 space-y-2.5 sm:mt-4 sm:space-y-3">
                 {footerLinks.products.map((link) => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-sm text-muted-foreground hover:text-foreground">
+                    <Link
+                      href={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground"
+                    >
                       {link.name}
                     </Link>
                   </li>
@@ -92,11 +101,16 @@ export function Footer() {
               </ul>
             </div>
             <div className="col-span-2 sm:col-span-1">
-              <h3 className="text-sm font-semibold text-foreground">Services</h3>
+              <h3 className="text-sm font-semibold text-foreground">
+                Services
+              </h3>
               <ul className="mt-3 space-y-2.5 sm:mt-4 sm:space-y-3">
                 {footerLinks.services.map((link) => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-sm text-muted-foreground hover:text-foreground">
+                    <Link
+                      href={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground"
+                    >
                       {link.name}
                     </Link>
                   </li>
@@ -109,7 +123,8 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:mt-12 sm:flex-row sm:pt-8">
           <p className="text-center text-xs text-muted-foreground sm:text-left sm:text-sm">
-            &copy; {new Date().getFullYear()} Shri Navkar Blowpack. All rights reserved.
+            &copy; {new Date().getFullYear()} Shri Navkar Blowpack. All rights
+            reserved.
           </p>
 
           {/* Social links */}
@@ -139,5 +154,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

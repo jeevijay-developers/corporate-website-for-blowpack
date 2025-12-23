@@ -1,39 +1,50 @@
-import { Package, Layers, Truck, Sparkles, Settings, Shield } from "lucide-react"
+import {
+  Package,
+  Layers,
+  Truck,
+  Sparkles,
+  Settings,
+  Shield,
+} from "lucide-react";
 
 const services = [
   {
     icon: Package,
-    title: "Blow Moulding",
+    title: "Multilayer COEX Technology",
     description:
-      "State-of-the-art blow moulding technology for producing high-quality plastic containers in various sizes and shapes.",
+      "Advanced multilayer bottles with EVOH and PA barriers providing superior resistance to oxygen ingress, solvent permeation, and aroma loss.",
   },
   {
     icon: Layers,
-    title: "Custom Designs",
-    description: "Tailored packaging solutions designed to meet your specific product requirements and brand identity.",
+    title: "UN-Certified Packaging",
+    description:
+      "UN-certified bottles and jerrycans for hazardous goods, meeting international safety and regulatory standards.",
   },
   {
     icon: Settings,
-    title: "Mould Development",
-    description: "In-house mould design and development ensuring precision, durability, and cost-effective production.",
+    title: "Custom Development",
+    description:
+      "Extensive customization in size, shape, neck finish, color, and barrier structure to achieve optimal performance and brand differentiation.",
   },
   {
     icon: Sparkles,
-    title: "Finishing Services",
+    title: "Closure & Dosing Solutions",
     description:
-      "Comprehensive finishing options including labeling, printing, and surface treatments for premium presentation.",
+      "Complete range of caps, closures, and measuring cups designed for secure sealing, accurate dosing, and tamper evidence.",
   },
   {
     icon: Truck,
-    title: "Pan-India Delivery",
-    description: "Reliable logistics network ensuring timely delivery across India with proper packaging and handling.",
+    title: "Global Supply",
+    description:
+      "Advanced manufacturing facilities with precision and consistency to serve global markets across agrochemical and specialty industries.",
   },
   {
     icon: Shield,
-    title: "Quality Assurance",
-    description: "Rigorous quality control processes at every stage ensuring products meet international standards.",
+    title: "Sustainable Practices",
+    description:
+      "Recyclable materials and responsible manufacturing processes delivering durable, future-ready packaging solutions.",
   },
-]
+];
 
 export function Services() {
   return (
@@ -41,12 +52,15 @@ export function Services() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-wider text-accent">What We Offer</p>
+          <p className="text-sm font-semibold uppercase tracking-wider text-accent">
+            Our Capabilities
+          </p>
           <h2 className="mt-2 text-balance font-serif text-2xl font-bold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
-            Comprehensive Packaging Services
+            Advanced Manufacturing Solutions
           </h2>
           <p className="mt-3 text-pretty text-base text-muted-foreground sm:mt-4 sm:text-lg">
-            From concept to delivery, we provide end-to-end packaging solutions that drive your business forward.
+            Specialized technologies and advanced facilities delivering
+            innovative packaging for demanding industrial applications.
           </p>
         </div>
 
@@ -63,11 +77,13 @@ export function Services() {
               <h3 className="mt-3 font-serif text-base font-semibold text-foreground sm:mt-4 sm:text-lg">
                 {service.title}
               </h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground sm:mt-2">{service.description}</p>
+              <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground sm:mt-2">
+                {service.description}
+              </p>
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
