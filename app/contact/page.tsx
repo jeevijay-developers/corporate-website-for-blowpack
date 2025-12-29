@@ -162,7 +162,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col pt-[80px]">
       <Header />
       <main className="flex-1">
         {/* Hero Section */}

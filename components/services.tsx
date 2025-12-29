@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import {
   Package,
   Layers,
@@ -47,6 +50,27 @@ const services = [
 ];
 
 export function Services() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [touchEndX, setTouchEndX] = useState<number | null>(null);
+
+  const next = () => setActiveIndex((prev) => (prev + 1) % services.length);
+  const prev = () =>
+    setActiveIndex((prev) => (prev - 1 + services.length) % services.length);
+
+  const handleSwipe = () => {
+    if (touchStartX === null || touchEndX === null) return;
+    const delta = touchEndX - touchStartX;
+    const threshold = 40;
+    if (delta > threshold) {
+      prev();
+    } else if (delta < -threshold) {
+      next();
+    }
+    setTouchStartX(null);
+    setTouchEndX(null);
+  };
+
   return (
     <section id="services" className="bg-muted/30 py-12 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -64,8 +88,57 @@ export function Services() {
           </p>
         </div>
 
-        {/* Services grid - 1 col mobile, 2 col tablet, 3 col desktop */}
-        <div className="mt-10 grid gap-4 sm:mt-16 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">
+        {/* Mobile carousel */}
+        <div className="mt-10 sm:hidden">
+          <div className="relative overflow-hidden rounded-xl bg-background touch-pan-x">
+            <div
+              className="flex transition-transform duration-300"
+              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+              onTouchStart={(e) => setTouchStartX(e.touches[0].clientX)}
+              onTouchMove={(e) => setTouchEndX(e.touches[0].clientX)}
+              onTouchEnd={() => handleSwipe()}
+            >
+              {services.map((service) => (
+                <div key={service.title} className="min-w-full p-5">
+                  <div className="group relative rounded-lg border border-border bg-background p-5 transition-all hover:border-accent/50 hover:shadow-lg">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
+                      <service.icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="mt-3 font-serif text-base font-semibold text-foreground">
+                      {service.title}
+                    </h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                      {service.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Arrows */}
+            <button
+              type="button"
+              aria-label="Previous service"
+              className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full border border-border bg-background/90 p-2 shadow"
+              onClick={prev}
+            >
+              <span className="sr-only">Previous</span>
+              ‹
+            </button>
+            <button
+              type="button"
+              aria-label="Next service"
+              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full border border-border bg-background/90 p-2 shadow"
+              onClick={next}
+            >
+              <span className="sr-only">Next</span>
+              ›
+            </button>
+          </div>
+        </div>
+
+        {/* Tablet/desktop grid */}
+        <div className="mt-10 hidden gap-4 sm:mt-16 sm:grid sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">
           {services.map((service) => (
             <div
               key={service.title}

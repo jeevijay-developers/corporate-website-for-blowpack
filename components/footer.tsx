@@ -39,8 +39,7 @@ export function Footer() {
               />
             </Link>
             <p className="mt-4 text-sm text-muted-foreground">
-              Trusted global partner in HDPE and multilayer barrier packaging
-              for agrochemical and specialty chemical industries.
+              Delivering HDPE and multilayer barrier packaging solutions for agrochemical and pesticide packaging needs.
             </p>
 
             {/* Contact info */}
@@ -61,7 +60,9 @@ export function Footer() {
               </a>
               <div className="flex items-start gap-2 text-sm text-muted-foreground">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-                <span>Ankleshwar, Gujarat, India</span>
+                <span>
+                  Unit-Il, Plot No, 120-121/11 & 12, GIDC Ind. Estate, Ankleshwar-393002. Gujarat, INDIA
+                  </span>
               </div>
             </div>
           </div>
@@ -127,30 +128,8 @@ export function Footer() {
             reserved.
           </p>
 
-          {/* Social links */}
-          <div className="flex gap-3 sm:gap-4">
-            <a
-              href="#"
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-background text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground sm:h-9 sm:w-9"
-            >
-              <Facebook className="h-4 w-4" />
-              <span className="sr-only">Facebook</span>
-            </a>
-            <a
-              href="#"
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-background text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground sm:h-9 sm:w-9"
-            >
-              <Linkedin className="h-4 w-4" />
-              <span className="sr-only">LinkedIn</span>
-            </a>
-            <a
-              href="#"
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-background text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground sm:h-9 sm:w-9"
-            >
-              <Twitter className="h-4 w-4" />
-              <span className="sr-only">Twitter</span>
-            </a>
-          </div>
+         
+         
         </div>
       </div>
     </footer>

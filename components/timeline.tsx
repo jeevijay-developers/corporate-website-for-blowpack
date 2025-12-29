@@ -1,6 +1,11 @@
 const visionMission = {
-  vision:
-    "To be a trusted global partner in plastic packaging by delivering innovative, reliable, and sustainable packaging solutions that protect products, ensure safety, and support the evolving needs of the agrochemical and specialty chemical industries.",
+  vision: [
+    "To become a trusted global partner in plastic packaging through consistent quality, integrity, and customer-centric collaboration.",
+    "To deliver innovative and reliable packaging solutions that protect products, ensure safety, and enhance performance across applications.",
+    "To lead with sustainability by adopting responsible materials, efficient processes, and eco-conscious practices across operations.",
+    "To support evolving needs of agrochemical and specialty chemical industries with compliance-driven, future-ready packaging.",
+    "To create value through innovation and trust.",
+  ],
   mission: [
     "To manufacture high-quality HDPE and multilayer barrier packaging solutions that meet international safety, regulatory, and performance standards.",
     "To provide customized bottles, jerrycans, caps, and measuring solutions that enhance product protection, ease of use, and customer value.",
@@ -96,9 +101,17 @@ export function Timeline() {
                   Our Vision
                 </h3>
               </div>
-              <p className="mt-5 text-pretty text-base leading-relaxed text-muted-foreground">
-                {visionMission.vision}
-              </p>
+              <ul className="mt-5 space-y-3">
+                {visionMission.vision.map((item, index) => (
+                  <li
+                    key={index}
+                    className="flex gap-3 text-sm leading-relaxed text-muted-foreground"
+                  >
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
             <div className="group rounded-xl border border-border bg-background p-6 shadow-sm transition-shadow hover:shadow-md sm:p-8">
               <div className="flex items-center gap-3">

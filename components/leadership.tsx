@@ -2,7 +2,7 @@ import { Linkedin, Mail } from "lucide-react";
 
 const leaders = [
   {
-    name: "Suresh Nahar Ji",
+    name: "Suresh Nahar",
     role: "Founder",
     bio: "Our journey began in 1984 with a vision to revolutionize the packaging industry. With dedication and innovation, we've built a legacy of trust, quality, and customer satisfaction that continues to guide us today.",
     image: "/suresh.png",

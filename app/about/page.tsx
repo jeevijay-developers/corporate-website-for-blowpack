@@ -108,7 +108,7 @@ const testimonials = [
 
 export default function AboutPage() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col pt-[80px]">
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
@@ -117,7 +117,7 @@ export default function AboutPage() {
             <div className="mx-auto max-w-3xl text-center">
               <div className="mb-6 inline-flex items-center rounded-full border border-border bg-background px-4 py-1.5 text-sm text-muted-foreground">
                 <span className="mr-2 h-2 w-2 rounded-full bg-accent" />
-                About Our Company
+                About Our Industry
               </div>
               <h1 className="text-balance font-serif text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl">
                 Four Decades of Excellence in{" "}
@@ -205,51 +205,61 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Mission & Vision */}
+        {/* Capabilities Section */}
         <section className="bg-muted/30 py-12 sm:py-20 lg:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-3xl text-center">
-              <p className="text-sm font-semibold uppercase tracking-wider text-accent">
-                Focused and Future Ready
-              </p>
-              <h2 className="mt-2 text-balance font-serif text-2xl font-bold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
-                Our Mission & Vision
-              </h2>
-            </div>
-
-            <div className="mx-auto mt-12 grid max-w-5xl gap-8 lg:grid-cols-2">
-              {/* Mission */}
-              <div className="group rounded-xl border border-border bg-background p-6 shadow-sm transition-all hover:shadow-lg sm:p-8">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10 transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
-                    <Target className="h-6 w-6 text-accent group-hover:text-accent-foreground" />
-                  </div>
-                  <h3 className="font-serif text-xl font-semibold text-foreground">
-                    Our Mission
-                  </h3>
-                </div>
-                <p className="mt-6 text-pretty leading-relaxed text-muted-foreground">
-                  To be recognized as a company committed to continuous
-                  improvement, fostering excellent relationships with customers,
-                  employees, and the community.
+            <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+              <div className="space-y-4">
+                <p className="text-sm font-semibold uppercase tracking-wider text-accent">
+                  Specialized Solutions
+                </p>
+                <h2 className="text-balance font-serif text-2xl font-bold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
+                  Advanced Manufacturing Capabilities
+                </h2>
+                <p className="text-base leading-relaxed text-muted-foreground">
+                  We have advanced manufacturing facilities capable of delivering specialized solutions for a wide range of industrial applications using specially developed technologies. Our capabilities allow us to support complex and demanding projects with precision and consistency.
+                </p>
+                <p className="text-base leading-relaxed text-muted-foreground">
+                  We continuously adapt and innovate to meet evolving customer requirements, offering customized development solutions aligned with users’ changing needs.
                 </p>
               </div>
-
-              {/* Vision */}
-              <div className="group rounded-xl border border-border bg-background p-6 shadow-sm transition-all hover:shadow-lg sm:p-8">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10 transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
-                    <Eye className="h-6 w-6 text-accent group-hover:text-accent-foreground" />
+              <div className="relative overflow-hidden rounded-2xl border border-border bg-background p-6 shadow-sm sm:p-8">
+                <div className="absolute inset-0 bg-[radial-gradient(30rem_30rem_at_20%_20%,var(--color-accent)/10,transparent)]" />
+                <div className="relative space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent">
+                      <Factory className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground">Specialized Production</p>
+                      <p className="text-sm leading-relaxed text-muted-foreground">
+                        Purpose-built lines for high-complexity projects with tight tolerances.
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="font-serif text-xl font-semibold text-foreground">
-                    Our Vision
-                  </h3>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent">
+                      <Gauge className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground">Precision & Consistency</p>
+                      <p className="text-sm leading-relaxed text-muted-foreground">
+                        Quality systems tuned for repeatability across demanding runs.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent">
+                      <Settings className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground">Adaptive Development</p>
+                      <p className="text-sm leading-relaxed text-muted-foreground">
+                        Rapid iteration to align with evolving customer and market needs.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <p className="mt-6 text-pretty leading-relaxed text-muted-foreground">
-                  To provide exceptional services with the highest standards of
-                  ethics, morals, and values, ensuring customer delight through
-                  innovative solutions.
-                </p>
               </div>
             </div>
           </div>

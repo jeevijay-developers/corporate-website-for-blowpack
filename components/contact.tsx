@@ -112,7 +112,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-12 pb-24 sm:py-24 lg:pb-24">
+    <section id="contact" className="py-12 pb-24 sm:py-24 lg:pb-24  ">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="mx-auto max-w-2xl text-center">
@@ -256,8 +256,8 @@ export function Contact() {
               <iframe
                 title="Shri Navkar Blowpack Location"
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3711.287930344019!2d72.984185!3d21.535594!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be03b53acebb357%3A0x7c0025c781b4912b!2sShri%20Navkar%20Blowpack%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1766483606483!5m2!1sen!2sin"
-                width="600"
-                height="450"
+                width="100%"
+                height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
